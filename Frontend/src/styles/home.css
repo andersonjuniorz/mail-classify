@@ -1,0 +1,126 @@
+:root {
+    --primary-color: #0b4db1;
+    --Bg-color: #e4e4e4;
+    
+    --label-bg-color: #d9d9d9;
+    --label-hover-color: #d1d1d1;
+
+    --border-color: #7d7d7d;
+    --border-dashed-color: #000;
+}
+
+body {
+    background-color: var(--Bg-color);
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.home-container {
+    background-color: var(--Bg-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-container fieldset {
+    background-color: var(--label-bg-color);
+    width: 600px;
+    max-width: 90%;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: #043a8b;
+}
+
+.label-input-file {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: var(--label-bg-color);
+    margin-bottom: 20px;
+    padding: 20px 50px;
+    min-height: 150px;
+    border-radius: 20px;
+    border: 1px dashed var(--border-dashed-color);
+    transition: background-color 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+.label-input-file:hover {
+    background-color: var(--label-hover-color);
+}
+
+.span-file {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.email-file {
+    display: none;
+}
+
+.file-feedback {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.85em;
+    color: #555;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-feedback::before {
+    content: "📄";
+    font-size: 0.8em;
+}
+
+.files-feedback-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.files-feedback-container p:first-child {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+.no-file-feedback {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #777;
+    font-style: italic;
+    text-align: center;
+}
