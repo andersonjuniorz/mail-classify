@@ -1,0 +1,6 @@
+flask==3.1.1         # Framework
+#python-dotenv==1.1.1 # .Env
+pandas==2.3.0        # leitura de arquivos
+kagglehub==0.3.12    # Dataset
+Flask-Cors==4.0.0    # Cors
+PyPDF2==3.0.1        # Para leitura de PDF
