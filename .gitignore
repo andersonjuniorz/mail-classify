@@ -27,6 +27,13 @@ dist-ssr
 
 # ---------------- BACKEND --------------------------
 
+# Modelos treinados e artefatos de ML
+fine_tuned_classifier/ 
+results/
+
+# Code Runner vscode extension
+Backend/tempCodeRunnerFile.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

@@ -1,6 +1,12 @@
-flask==3.1.1         # Framework
-#python-dotenv==1.1.1 # .Env
-pandas==2.3.0        # leitura de arquivos
-kagglehub==0.3.12    # Dataset
-Flask-Cors==4.0.0    # Cors
-PyPDF2==3.0.1        # Para leitura de PDF
+# ==============================================================
+# ------------- Dependencias Python do backend -----------------
+# ==============================================================
+
+flask==3.1.1                   # Framework
+python-dotenv==1.1.1           # .Env
+pandas==2.3.0                  # leitura de arquivos
+Flask-Cors==4.0.0              # Cors
+PyPDF2==3.0.1                  # Para leitura de PDF
+torch==2.7.1                   # Deep learning
+transformers[torch]==4.53.0    # PLN Hugging Face
+scikit-learn==1.7.0            # ML utilitarios
