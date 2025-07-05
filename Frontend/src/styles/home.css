@@ -1,59 +1,104 @@
-:root {
-    --primary-color: #0b4db1;
-    --Bg-color: #e4e4e4;
-    
-    --label-bg-color: #d9d9d9;
-    --label-hover-color: #d1d1d1;
-
-    --border-color: #7d7d7d;
-    --border-dashed-color: #000;
-}
-
+/*----------------------------------------------------------------------*/
+/*--------------------------- ESTILOS ----------------------------------*/
+/*----------------------------------------------------------------------*/
 body {
     background-color: var(--Bg-color);
     margin: 0;
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-color-dark);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+}
+
+h1, h3{
+    margin: 40px 0 50px 0;
 }
 
 h1 {
     text-align: center;
-    margin-top: 35px;
-    margin-bottom: 35px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.2em;
 }
 
 .home-container {
-    background-color: var(--Bg-color);
-    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
 }
 
-.home-container fieldset {
-    background-color: var(--label-bg-color);
-    width: 600px;
-    max-width: 90%;
-    padding: 30px;
-    border-radius: 10px;
+/* Estilos gerais para secoes de formulario e resultados (cards base) */
+.form-section,
+.results-container {
+    width: 100%;
+    max-width: 700px;
+    background-color: var(--card-bg-color);
+    padding: 40px;
+    border-radius: 12px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px var(--shadow-color);
+    margin-bottom: 40px; /* Espaco entre as secoes */
 }
 
+/* Remove margem inferior do ultimo container de resultados */
+.results-container:last-of-type {
+    margin-bottom: 20px;
+}
+
+/* Estilos do Botao de Envio (Comum aos formularios) */
 .submit-button {
     background-color: var(--primary-color);
     color: #fff;
     width: 100%;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 20px;
+    padding: 18px;
+    margin-top: 30px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.2s ease-in-out;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .submit-button:hover {
-    background-color: #043a8b;
+    background-color: #083c92;
+    transform: translateY(-2px);
 }
+
+.submit-button:active {
+    transform: translateY(0);
+    background-color: #062e70;
+}
+
+/* --- Separador "OU" --- */
+.or-separator {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 1.2em;
+    color: var(--text-color-medium);
+    font-weight: bold;
+}
+
+
+/*----------------------------------------------------------------------*/
+/*---------------------- FORMULARIO DE UPLOAD --------------------------*/
+/*----------------------------------------------------------------------*/
 
 .label-input-file {
     display: flex;
@@ -61,66 +106,280 @@ h1 {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background-color: var(--label-bg-color);
-    margin-bottom: 20px;
-    padding: 20px 50px;
-    min-height: 150px;
-    border-radius: 20px;
-    border: 1px dashed var(--border-dashed-color);
-    transition: background-color 0.2s ease-in-out;
-    box-sizing: border-box;
+    background-color: var(--card-hover-color);
+    margin-bottom: 25px;
+    padding: 30px 60px;
+    min-height: 180px;
+    border-radius: 12px;
+    border: 2px dashed var(--border-dashed-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-size: 1.1em;
+    color: var(--text-color-medium);
 }
 
 .label-input-file:hover {
-    background-color: var(--label-hover-color);
+    background-color: #ececec;
+    border-color: var(--primary-color);
 }
 
 .span-file {
-    margin-bottom: 10px;
-    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: var(--text-color-dark);
 }
 
 .email-file {
     display: none;
 }
 
+.files-feedback-container {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color);
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.files-feedback-container p:first-child {
+    margin-bottom: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--text-color-dark);
+    text-align: left;
+}
+
+.files-feedback-container ul {
+    list-style: none;
+    padding-left: 0;
+}
+
 .file-feedback {
     display: flex;
     align-items: center;
-    gap: 5px;
-    font-size: 0.85em;
-    color: #555;
-    margin-bottom: 3px;
+    gap: 8px;
+    font-size: 0.95em;
+    color: var(--text-color-medium);
+    margin-bottom: 5px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .file-feedback::before {
-    content: "📄";
-    font-size: 0.8em;
-}
-
-.files-feedback-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
-    padding-top: 10px;
-    border-top: 1px dashed var(--border-color);
-}
-
-.files-feedback-container p:first-child {
-    margin-bottom: 10px;
-    font-size: 0.95em;
-    color: #333;
-    font-weight: bold;
-    text-align: center;
+    content: "📄"; /* Icone de documento */
+    font-size: 0.9em;
+    flex-shrink: 0;
 }
 
 .no-file-feedback {
-    margin-top: 15px;
-    font-size: 0.9em;
-    color: #777;
+    margin-top: 20px;
+    font-size: 0.95em;
+    color: var(--text-color-light);
     font-style: italic;
     text-align: center;
+}
+
+
+/*----------------------------------------------------------------------*/
+/*--------------------- FORMULARIO DE ESCRITA MANUAL -------------------*/
+/*----------------------------------------------------------------------*/
+
+.email-input-fields label {
+    font-weight: 600;
+    color: var(--text-color-dark);
+    display: block; /* Cada label em sua propria linha */
+    margin-bottom: 8px;
+    margin-top: 15px;
+}
+
+.email-input-fields label:first-of-type {
+    margin-top: 0;
+}
+
+.email-input-fields input[type="email"],
+.email-input-fields input[type="text"],
+.email-input-fields textarea {
+    width: calc(100% - 24px);
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    color: var(--text-color-dark);
+    background-color: #fcfcfc;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 0;
+}
+
+.email-input-fields input[type="email"]:focus,
+.email-input-fields input[type="text"]:focus,
+.email-input-fields textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(11, 77, 177, 0.2);
+}
+
+.email-input-fields textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+
+/*----------------------------------------------------------------------*/
+/*---------------------------- AREA DE RESULTADOS ----------------------*/
+/*----------------------------------------------------------------------*/
+
+.results-container h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.file-result-card,
+.text-input-result-card {
+    background-color: #f8fafd;
+    border: 1px solid #e0e7ff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    overflow-x: hidden; /* Evita que o conteudo extravase horizontalmente */
+}
+
+.file-result-card:last-child,
+.text-input-result-card:last-child {
+    margin-bottom: 0;
+}
+
+.file-result-card h3,
+.text-input-result-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.file-result-card p,
+.text-input-result-card p {
+    margin-bottom: 8px;
+    color: var(--text-color-medium);
+}
+
+/* texto processado e resposta sugerida */
+.extracted-text,
+.suggested-response {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    white-space: pre-wrap; /* Preserva espacos e quebras de linha e quebra automaticamente */
+    word-wrap: break-word; /* Suporte mais antigo para quebra de palavras */
+    overflow-wrap: break-word;
+    max-width: 100%;
+    overflow-x: hidden; /* Esconde overflow horizontal */
+    max-height: 300px;
+    overflow-y: auto; /* Adiciona barra de rolagem vertical */
+    font-size: 0.9em;
+    color: #444;
+}
+
+.extracted-text {
+    font-family: 'Consolas', 'Monaco', monospace; /* Fonte monoespacada para texto tecnico */
+}
+
+.suggested-response {
+    background-color: #f0f8ff;
+    border-color: #cce5ff;
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    color: #4a4a4a;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    max-height: 200px;
+}
+
+/* Estilos Adicionais para Categoria */
+.category-tag {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    margin-left: 5px;
+    white-space: nowrap; /* Evita que a tag quebre a linha */
+}
+
+.category-tag.produtivo {
+    background-color: #28a745;
+}
+
+.category-tag.improdutivo {
+    background-color: #dc3545;
+}
+
+.category-tag.texto-vazio {
+    background-color: #ffc107;
+    color: #333;
+}
+
+
+/*----------------------------------------------------------------------*/
+/*------------------------- RESPONSIVIDADE -----------------------------*/
+/*----------------------------------------------------------------------*/
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .form-section,
+    .results-container {
+        padding: 25px;
+    }
+
+    .label-input-file {
+        min-height: 120px;
+        padding: 20px 30px;
+        font-size: 1em;
+    }
+
+    .submit-button {
+        padding: 15px;
+        font-size: 1em;
+    }
+
+    .or-separator {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .form-section,
+    .results-container {
+        padding: 15px;
+    }
+
+    .label-input-file {
+        min-height: 100px;
+    }
+
+    .email-input-fields label {
+        margin-bottom: 5px;
+    }
+
+    .email-input-fields input,
+    .email-input-fields textarea {
+        padding: 10px;
+        font-size: 0.9em;
+    }
 }

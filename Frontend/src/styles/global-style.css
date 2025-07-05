@@ -1,6 +1,40 @@
+/*----------------------------------------------------------------------*/
+/*--------------------------- VARIAVEIS GLOBAIS ------------------------*/
+/*----------------------------------------------------------------------*/
+:root {
+    --primary-color: #0b4db1;
+    --Bg-color: #f0f2f5;
+    
+    --card-bg-color: #ffffff;
+    --card-hover-color: #f5f5f5;
+
+    --border-color: #d1d5db;
+    --border-dashed-color: #9ca3af;
+
+    --text-color-dark: #333333;
+    --text-color-medium: #555555;
+    --text-color-light: #777777;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+/*----------------------------------------------------------------------*/
+/*--------------------------- ESTILOS GLOBAIS --------------------------*/
+/*----------------------------------------------------------------------*/
+
 /* Reset CSS */
-*{
+* {
     margin: 0;
     padding: 0;
     border: 0;
+    /* Incluir box-sizing globalmente facilita o layout com padding e border */
+    box-sizing: border-box; 
+}
+
+/* Classes Utilitarias */
+.center {
+    text-align: center;
+}
+
+.p-20px {
+    padding: 20px;
 }
