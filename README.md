@@ -61,3 +61,45 @@ Siga os passos abaixo para configurar seu ambiente de desenvolvimento.
 git clone git@github.com:andersonjuniorz/mail-classify.git
 ```
 
+## ▶️ Como Usar o Aplicativo Localmente
+
+Após configurar seu ambiente conforme a seção anterior, siga estes passos para iniciar e usar a aplicação:
+
+### 1. Iniciar o Backend (Flask com IA no Docker)
+
+1.  Abra seu terminal e navegue para a pasta raíz (onde está o Backend e Frontend):
+
+2.  Inicie o serviço Docker Compose. Na primeira vez, ou após alterações em dependências/código Python, ele construirá a imagem Docker.
+    ```bash
+    docker-compose up --build 
+    ```
+    * **Observação:** A primeira construção da imagem pode demorar vários minutos (devido à instalação de bibliotecas de IA).
+    * Para rodar o backend em segundo plano (detached mode), use: `docker-compose up -d --build`
+    * Para parar o backend quando terminar, use: `docker-compose down`
+    * Se encontrar problemas de cache (`gunicorn not found`), force uma reconstrução sem cache com: `docker-compose build --no-cache backend` e depois `docker-compose up backend`.
+
+3.  Aguarde até ver nos logs do terminal que o Gunicorn está escutando na porta `5000` (ex: `Listening at: http://0.0.0.0:5000`).
+
+### 2. Iniciar o Frontend (React)
+
+1.  Abra **outro terminal** (mantenha o terminal do backend rodando).
+2.  Entre na pasta do **Frontend** do projeto:
+    ```bash
+    cd ../Frontend/                
+    ```
+3.  Instale as dependências JavaScript (apenas na primeira vez):
+    ```bash
+    npm install # ou yarn install
+    ```
+4.  Inicie o servidor de desenvolvimento do React:
+    ```bash
+    npm run dev # (Para Vite)
+    ```
+    * A aplicação React estará acessível em `http://localhost:5173` (ou a porta padrão do Vite, que será exibida no terminal).
+
+### 3. Testar a Aplicação
+
+* Com o backend Dockerizado e o frontend React rodando, acesse a URL do frontend no seu navegador (ex: `http://localhost:5173`).
+* Teste as funcionalidades de upload de arquivos (`.txt` ou `.pdf`) e a inserção de texto manual. A IA deve classificar e gerar respostas automáticas na interface.
+
+---
