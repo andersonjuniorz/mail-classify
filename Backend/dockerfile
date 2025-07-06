@@ -1,0 +1,24 @@
+FROM python:3.12-slim-bookworm
+
+# Atualiza os pacotes do sistema operacional para mitigar vulnerabilidades
+# Removendo arquivos de cache para manter a imagem menor
+RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
+
+# Define o diretorio de trabalho dentro do container
+WORKDIR /app
+
+# Copia o arquivo de requisitos
+COPY requirements.txt .
+
+# Permite que pip use cache durante o build para velocidade, 
+# mas limpa-o em seguida para imagem pequena
+RUN pip install -r requirements.txt && rm -rf /root/.cache/pip
+
+# Copia o restante do codigo da aplicacao para o diretorio de trabalho
+COPY . .
+
+# Expoe a porta em que a aplicacao Flask ira rodar
+EXPOSE 5000
+
+# Comando para iniciar a aplicacao Flask usando Gunicorn
+CMD ["python", "-m", "gunicorn", "--bind", "0.0.0.0:5000", "run:app"] 

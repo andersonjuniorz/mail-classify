@@ -1,0 +1,35 @@
+services:
+  backend:
+    build:
+      context: ./Backend # Diz ao Docker para buscar o Dockerfile no diretorio atual
+      dockerfile: Dockerfile
+
+    ports:
+      - "5000:5000" # Mapeia a porta 5000 do seu host (maquina local) para a porta 5000 do container
+                    # Isso permite acessar o Flask via http://localhost:5000
+
+    volumes:
+      - ./Backend/myApp/data/datasets:/app/myApp/data/datasets # persiste os datasets de treino
+      - ./Backend/fine_tuned_classifier:/app/fine_tuned_classifier # persiste a IA mais recente
+
+
+    env_file:
+      - ./Backend/.env 
+
+    restart: on-failure
+
+    # ================================================================================
+    # --- ATENCAO: ESTA CONFIGURACAO HABILITA ACESSO A GPU NO DOCKER -----------------
+    # --- Porem, para GPU's menos potente sera necessario usar a CPU em vez da GPU ---
+    # --- para treinar/inferir o modelo DistilBERT. Voce provavelmente vera ----------
+    # --- erros de 'CUDA out of memory'. Mantenha USE_GPU=False no seu .env ----------
+    # --- para que o treinamento ocorra na CPU sem problemas -------------------------
+    # ================================================================================
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all # Tenta usar todas as GPUs NVIDIA disponiveis
+              capabilities: [gpu] # Habilita capacidades de GPU

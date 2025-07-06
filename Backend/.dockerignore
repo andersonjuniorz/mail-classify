@@ -1,0 +1,20 @@
+# ==============================================================
+# -------------------- DOCKER IGNORE ---------------------------
+# ==============================================================
+
+# Pastas de ambiente e compilados Python
+env/
+venv/
+__pycache__/
+
+# IA
+fine_tuned_classifier/
+
+# Artefatos de treinamento e logs da IA
+results/
+
+# Configuracao local
+.env
+
+# vscode extension
+tempCodeRunnerFile.py

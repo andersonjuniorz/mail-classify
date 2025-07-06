@@ -3,10 +3,11 @@
 # ==============================================================
 
 flask==3.1.1                   # Framework
-python-dotenv==1.1.1           # .Env
+python-dotenv==1.1.1           # Variaveis ambiente
 pandas==2.3.0                  # leitura de arquivos
-Flask-Cors==4.0.0              # Cors
+Flask-Cors==4.0.0              # Gerencia CORS
 PyPDF2==3.0.1                  # Para leitura de PDF
 torch==2.7.1                   # Deep learning
 transformers[torch]==4.53.0    # PLN Hugging Face
 scikit-learn==1.7.0            # ML utilitarios
+gunicorn==23.0.0               # Servidor WSGI
