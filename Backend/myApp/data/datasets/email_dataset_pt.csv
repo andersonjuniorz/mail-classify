@@ -1,11 +1,213 @@
 ﻿mensagem,label
-"Prezado(a) gestor(a),\n\nGostaria de confirmar que o relatório de vendas referente ao mês de junho já foi compilado e enviado para sua pasta compartilhada, conforme solicitado. Por favor, revise a planilha anexa (Relatorio_Vendas_Junho_2025.xlsx) e me informe se há alguma correção ou dado adicional necessário.\n\nFico à disposição para qualquer esclarecimento.\n\nAtenciosamente,\n[Seu Nome]",Produtivo
-"Olá equipe,\n\nEste é um lembrete amigável de que a limpeza semanal de arquivos temporários e planilhas desnecessárias no Google Drive está agendada para sexta-feira, dia 11 de julho, às 17h. Por favor, certifiquem-se de que todos os documentos importantes estejam devidamente arquivados antes desta data.\n\nAgradecemos a colaboração de todos para manter nossa organização.\n\nCordialmente,\n[Departamento de TI]",Improdutivo
-"Assunto: Requisição de Dados para o Novo Dashboard\n\nBom dia,\n\nPreciso dos dados consolidados das vendas do último trimestre para alimentar o novo dashboard de performance. Poderia, por favor, me enviar a planilha atualizada até o final do dia?\n\nObrigado,\nEquipe de Análise",Produtivo
-"Assunto: Boas Festas!\n\nPrezados(as) colegas,\n\nO time de RH gostaria de desejar a todos um excelente fim de ano e um feliz Natal. Que 2025 traga muita paz e sucesso. Estaremos de recesso do dia 20/12 ao dia 05/01.\n\nCom carinho,\nEquipe de RH",Improdutivo
-"Assunto: Urgente: Problema com Fórmula na Planilha de Orçamento\n\nOlá [Nome],\n\nIdentifiquei um erro crítico na fórmula da célula C5 da planilha de orçamento (Orcamento_2025_Final.xlsx), que está afetando os cálculos totais. Poderia, por favor, verificar e corrigir o mais rápido possível?\n\nAguardo seu retorno,\n[Seu Nome]",Produtivo
-"Assunto: Convite para o Evento de Lançamento de Produto\n\nPrezado(a) convidado(a),\n\nTemos o prazer de convidá-lo(a) para o lançamento do nosso mais novo produto, o [Nome do Produto], que acontecerá no dia 25 de agosto. Mais detalhes serão enviados em breve. Sua presença é muito importante para nós!\n\nAtenciosamente,\n[Empresa]",Improdutivo
-"Assunto: Dúvida sobre o Relatório de Despesas de Viagem\n\nBom dia, [Nome do Responsável],\n\nEstou com uma dúvida sobre como preencher a seção de 'Outras Despesas' na planilha de despesas de viagem. Poderia me orientar sobre qual categoria usar para o transporte público?\n\nGrato(a),\n[Seu Nome]",Produtivo
-"Assunto: Aviso de Manutenção Programada do Servidor\n\nCaros usuários,\n\nInformamos que haverá uma manutenção programada nos servidores da empresa no próximo sábado, dia 13 de julho, das 00h às 06h. Durante este período, alguns sistemas internos poderão ficar indisponíveis. Agradecemos a compreensão.\n\nAtenciosamente,\nSuporte de TI",Improdutivo
-"Assunto: Solicitação de Acesso à Planilha de Controle de Estoque\n\nOlá [Nome do Gestor],\n\nPreciso de acesso de edição à planilha 'Controle_Estoque_Geral.xlsx' para atualizar os dados de entrada e saída de produtos. Poderia, por favor, conceder-me a permissão?\n\nObrigado(a),\n[Seu Nome]",Produtivo
-"Assunto: Novo Calendário de Feriados 2025\n\nPrezados(as) colaboradores(as),\n\nO novo calendário de feriados para o ano de 2025 já está disponível no portal interno de RH. Por favor, consultem-no para se programarem. Este e-mail é apenas informativo.\n\nAtenciosamente,\nDepartamento de RH",Improdutivo
+Pedido de informacao sobre o status da solicitacao #123.,Produtivo
+Atualizacao sobre o andamento do desenvolvimento da feature Y,Produtivo
+Que tempo agradavel hoje,Improdutivo
+Só sei que nada sei.,Improdutivo
+Que tal uma pausa?,Improdutivo
+Olha so que meme engracado,Improdutivo
+Estou te agradecendo por me inspirar,Improdutivo
+Encontrei uma vaga de emprego que pode te interessar,Improdutivo
+Viagem dos sonhos para o Caribe,Improdutivo
+Voce ja leu o novo best-seller?,Improdutivo
+Escrevi um artigo para o blog da empresa.,Produtivo
+Fiz exercícios físicos pela manhã.,Produtivo
+Concluí a leitura de um capítulo do livro técnico.,Produtivo
+Fiz exercícios físicos pela manhã.,Produtivo
+Concluí a leitura de um capítulo do livro técnico.,Produtivo
+Joguei videogame por horas sem parar.,Improdutivo
+Passei a tarde inteira nas redes sociais.,Improdutivo
+Fiquei navegando em sites de compras sem necessidade.,Improdutivo
+Escrevi um artigo para o blog da empresa.,Produtivo
+Planejei as tarefas da semana.,Produtivo
+Fiquei vendo vídeos aleatórios no YouTube.,Improdutivo
+Fiquei vendo vídeos aleatórios no YouTube.,Improdutivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Estudei uma nova linguagem de programação.,Produtivo
+Planejei as tarefas da semana.,Produtivo
+Finalizei um projeto pendente.,Produtivo
+Finalizei um projeto pendente.,Produtivo
+Fiquei deitado olhando para o teto.,Improdutivo
+Joguei videogame por horas sem parar.,Improdutivo
+Planejei as tarefas da semana.,Produtivo
+Atualizei meu currículo no LinkedIn.,Produtivo
+Me distraí com notificações do celular o dia todo.,Improdutivo
+Concluí a leitura de um capítulo do livro técnico.,Produtivo
+Me distraí com notificações do celular o dia todo.,Improdutivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Joguei videogame por horas sem parar.,Improdutivo
+Participei de uma reunião produtiva com a equipe.,Produtivo
+Organizei meus e-mails e respondi mensagens importantes.,Produtivo
+Procrastinei a maior parte do dia.,Improdutivo
+Joguei videogame por horas sem parar.,Improdutivo
+Estudei uma nova linguagem de programação.,Produtivo
+Organizei meus e-mails e respondi mensagens importantes.,Improdutivo
+Acompanhei um curso online sobre gestão de tempo.,Produtivo
+Escrevi um artigo para o blog da empresa.,Produtivo
+Finalizei um projeto pendente.,Produtivo
+Deixei todas as tarefas para depois.,Improdutivo
+Fiquei vendo vídeos aleatórios no YouTube.,Improdutivo
+Deixei todas as tarefas para depois.,Improdutivo
+Finalizei um projeto pendente.,Produtivo
+Escrevi um artigo para o blog da empresa.,Produtivo
+Me distraí com notificações do celular o dia todo.,Improdutivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Estudei uma nova linguagem de programação.,Produtivo
+Deixei todas as tarefas para depois.,Improdutivo
+Acompanhei um curso online sobre gestão de tempo.,Produtivo
+Escrevi um artigo para o blog da empresa.,Produtivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Concluí a leitura de um capítulo do livro técnico.,Produtivo
+Concluí a leitura de um capítulo do livro técnico.,Produtivo
+Organizei meus e-mails e respondi mensagens importantes.,Produtivo
+Fiquei vendo vídeos aleatórios no YouTube.,Improdutivo
+Rolei o feed do Instagram por horas.,Improdutivo
+Finalizei um projeto pendente.,Produtivo
+Deixei todas as tarefas para depois.,Improdutivo
+Rolei o feed do Instagram por horas.,Improdutivo
+Finalizei um projeto pendente.,Produtivo
+Escrevi um artigo para o blog da empresa.,Produtivo
+Acompanhei um curso online sobre gestão de tempo.,Produtivo
+Fiquei deitado olhando para o teto.,Improdutivo
+Participei de uma reunião produtiva com a equipe.,Produtivo
+Rolei o feed do Instagram por horas.,Improdutivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Procrastinei a maior parte do dia.,Improdutivo
+Estudei uma nova linguagem de programação.,Produtivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Joguei videogame por horas sem parar.,Improdutivo
+Concluí a leitura de um capítulo do livro técnico.,Produtivo
+Fiquei vendo vídeos aleatórios no YouTube.,Improdutivo
+Fiz exercícios físicos pela manhã.,Produtivo
+Rolei o feed do Instagram por horas.,Improdutivo
+Me distraí com notificações do celular o dia todo.,Improdutivo
+Participei de uma reunião produtiva com a equipe.,Produtivo
+Estudei uma nova linguagem de programação.,Produtivo
+Atualizei meu currículo no LinkedIn.,Produtivo
+Escrevi um artigo para o blog da empresa.,Produtivo
+Fiquei navegando em sites de compras sem necessidade.,Improdutivo
+Deixei todas as tarefas para depois.,Improdutivo
+Escrevi um artigo para o blog da empresa.,Produtivo
+Planejei as tarefas da semana.,Produtivo
+Deixei todas as tarefas para depois.,Improdutivo
+Fiquei vendo vídeos aleatórios no YouTube.,Improdutivo
+Passei a tarde inteira nas redes sociais.,Improdutivo
+Fiquei navegando em sites de compras sem necessidade.,Improdutivo
+Procrastinei a maior parte do dia.,Improdutivo
+Organizei meus e-mails e respondi mensagens importantes.,Produtivo
+Deixei todas as tarefas para depois.,Improdutivo
+Estudei uma nova linguagem de programação.,Produtivo
+Joguei videogame por horas sem parar.,Improdutivo
+Escrevi um artigo para o blog da empresa.,Produtivo
+Procrastinei a maior parte do dia.,Improdutivo
+Rolei o feed do Instagram por horas.,Improdutivo
+Procrastinei a maior parte do dia.,Improdutivo
+Rolei o feed do Instagram por horas.,Improdutivo
+Organizei meus e-mails e respondi mensagens importantes.,Produtivo
+Planejei as tarefas da semana.,Produtivo
+Planejei as tarefas da semana.,Produtivo
+Organizei meus e-mails e respondi mensagens importantes.,Produtivo
+Fiquei vendo vídeos aleatórios no YouTube.,Improdutivo
+Organizei meus e-mails e respondi mensagens importantes.,Produtivo
+Organizei meus e-mails e respondi mensagens importantes.,Produtivo
+Procrastinei a maior parte do dia.,Improdutivo
+Atualizei meu currículo no LinkedIn.,Produtivo
+Fiquei deitado olhando para o teto.,Improdutivo
+Organizei meus e-mails e respondi mensagens importantes.,Produtivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Concluí a leitura de um capítulo do livro técnico.,Produtivo
+Participei de uma reunião produtiva com a equipe.,Produtivo
+Me distraí com notificações do celular o dia todo.,Improdutivo
+Concluí a leitura de um capítulo do livro técnico.,Produtivo
+Concluí a leitura de um capítulo do livro técnico.,Produtivo
+Finalizei um projeto pendente.,Produtivo
+Passei a tarde inteira nas redes sociais.,Improdutivo
+Procrastinei a maior parte do dia.,Improdutivo
+Escrevi um artigo para o blog da empresa.,Produtivo
+Escrevi um artigo para o blog da empresa.,Produtivo
+Finalizei um projeto pendente.,Produtivo
+Me distraí com notificações do celular o dia todo.,Improdutivo
+Fiz exercícios físicos pela manhã.,Produtivo
+Escrevi um artigo para o blog da empresa.,Produtivo
+Planejei as tarefas da semana.,Produtivo
+Fiquei deitado olhando para o teto.,Improdutivo
+Procrastinei a maior parte do dia.,Improdutivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Rolei o feed do Instagram por horas.,Improdutivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Participei de uma reunião produtiva com a equipe.,Produtivo
+Joguei videogame por horas sem parar.,Improdutivo
+Deixei todas as tarefas para depois.,Improdutivo
+Procrastinei a maior parte do dia.,Improdutivo
+Procrastinei a maior parte do dia.,Improdutivo
+Acompanhei um curso online sobre gestão de tempo.,Produtivo
+Concluí a leitura de um capítulo do livro técnico.,Produtivo
+Fiquei deitado olhando para o teto.,Improdutivo
+Planejei as tarefas da semana.,Produtivo
+Deixei todas as tarefas para depois.,Improdutivo
+Deixei todas as tarefas para depois.,Improdutivo
+Procrastinei a maior parte do dia.,Improdutivo
+Escrevi um artigo para o blog da empresa.,Produtivo
+Deixei todas as tarefas para depois.,Improdutivo
+Fiz exercícios físicos pela manhã.,Produtivo
+Passei a tarde inteira nas redes sociais.,Improdutivo
+Me distraí com notificações do celular o dia todo.,Improdutivo
+Passei a tarde inteira nas redes sociais.,Improdutivo
+Organizei meus e-mails e respondi mensagens importantes.,Produtivo
+Passei a tarde inteira nas redes sociais.,Improdutivo
+Passei a tarde inteira nas redes sociais.,Improdutivo
+Planejei as tarefas da semana.,Produtivo
+Joguei videogame por horas sem parar.,Improdutivo
+Rolei o feed do Instagram por horas.,Improdutivo
+Passei a tarde inteira nas redes sociais.,Improdutivo
+Procrastinei a maior parte do dia.,Improdutivo
+Procrastinei a maior parte do dia.,Improdutivo
+Atualizei meu currículo no LinkedIn.,Produtivo
+Passei a tarde inteira nas redes sociais.,Improdutivo
+Passei a tarde inteira nas redes sociais.,Improdutivo
+Atualizei meu currículo no LinkedIn.,Produtivo
+Rolei o feed do Instagram por horas.,Improdutivo
+Estudei uma nova linguagem de programação.,Produtivo
+Concluí a leitura de um capítulo do livro técnico.,Produtivo
+Fiz exercícios físicos pela manhã.,Produtivo
+Deixei todas as tarefas para depois.,Improdutivo
+Organizei meus e-mails e respondi mensagens importantes.,Produtivo
+Deixei todas as tarefas para depois.,Improdutivo
+Fiquei deitado olhando para o teto.,Improdutivo
+Procrastinei a maior parte do dia.,Improdutivo
+Escrevi um artigo para o blog da empresa.,Produtivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Estudei uma nova linguagem de programação.,Produtivo
+Joguei videogame por horas sem parar.,Improdutivo
+Estudei uma nova linguagem de programação.,Produtivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Fiquei deitado olhando para o teto.,Improdutivo
+Finalizei um projeto pendente.,Produtivo
+Fiquei vendo vídeos aleatórios no YouTube.,Improdutivo
+Fiquei navegando em sites de compras sem necessidade.,Improdutivo
+Acompanhei um curso online sobre gestão de tempo.,Produtivo
+Rolei o feed do Instagram por horas.,Improdutivo
+Finalizei um projeto pendente.,Produtivo
+Participei de uma reunião produtiva com a equipe.,Produtivo
+Fiquei deitado olhando para o teto.,Improdutivo
+Concluí a leitura de um capítulo do livro técnico.,Produtivo
+Fiquei deitado olhando para o teto.,Improdutivo
+Estudei uma nova linguagem de programação.,Produtivo
+Atualizei meu currículo no LinkedIn.,Produtivo
+Fiz exercícios físicos pela manhã.,Produtivo
+Fiquei deitado olhando para o teto.,Improdutivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Finalizei um projeto pendente.,Produtivo
+Finalizei um projeto pendente.,Produtivo
+Organizei meus e-mails e respondi mensagens importantes.,Produtivo
+Fiz exercícios físicos pela manhã.,Produtivo
+Assisti uma série inteira sem intervalo.,Improdutivo
+Fiquei deitado olhando para o teto.,Improdutivo
+Planejei as tarefas da semana.,Produtivo
+Fiquei navegando em sites de compras sem necessidade.,Improdutivo
+Planejei as tarefas da semana.,Produtivo
+Acompanhei um curso online sobre gestão de tempo.,Produtivo
+Planejei as tarefas da semana.,Produtivo
+,
+

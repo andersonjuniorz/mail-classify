@@ -13,14 +13,14 @@ from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 
 from myApp.data.data_preprocessing import EmailDataset, prepare_data_for_ia
 
-from dotenv import load_dotenv # load_dotenv precisa ser importado e executado primeiro
+from dotenv import load_dotenv 
 
-if os.name == 'posix': # Módulo resource só está disponível em sistemas Unix-like
+if os.name == 'posix': # Modulo resource só está disponível em sistemas Unix-like
     import resource 
 
 # =========================================================================
-# === INÍCIO DO BLOCO DE CONFIGURAÇÃO DE DISPOSITIVO (CPU/GPU) VIA .env ===
-# ESTE BLOCO DEVE SER EXECUTADO ANTES DE QUALQUER 'import torch'
+# --- INÍCIO DO BLOCO DE CONFIGURAÇÃO DE DISPOSITIVO (CPU/GPU) VIA .env ---
+# ------ESTE BLOCO DEVE SER EXECUTADO ANTES DE QUALQUER 'import torch'-----
 # =========================================================================
 
 load_dotenv() # Carrega as variáveis de ambiente AGORA MESMO
@@ -29,6 +29,15 @@ load_dotenv() # Carrega as variáveis de ambiente AGORA MESMO
 USE_GPU_PREFERENCE = os.getenv("USE_GPU", "False").lower() == "true"
 MIN_GPU_VRAM_GB = float(os.getenv("MIN_GPU_VRAM_GB", 4.0)) 
 MAX_RAM_MB = int(os.getenv("MAX_RAM_MB", 0)) # Lê o limite de RAM em MB (0 = sem limite)
+
+# --- Configurações do Modelo com fallback (lidos do .env e convertidos para o tipo correto) ---
+MODEL_NAME = os.getenv("MODEL_NAME", "distilbert-base-multilingual-cased")
+NUM_LABELS = int(os.getenv("NUM_LABELS", 2))
+MAX_LENGTH = int(os.getenv("MAX_LENGTH", 64)) # Usei 128, mas reduzi pra 64 pra economizar RAM
+BATCH_SIZE = int(os.getenv("BATCH_SIZE", 1)) # Reduzi de 8 para 1 para economizar RAM
+LEARNING_RATE = float(os.getenv("LEARNING_RATE", 2e-5))
+NUM_EPOCHS = int(os.getenv("NUM_EPOCHS", 3))
+
 
 # Variável para armazenar a decisão final do dispositivo
 final_device = "cpu" # Assume CPU por padrão
@@ -49,27 +58,8 @@ else:
     # O final_device será determinado no bloco principal após o import torch
 
 # =========================================================================
-# === FIM DO BLOCO DE CONFIGURAÇÃO DE DISPOSITIVO ===
+# ---------- FIM DO BLOCO DE CONFIGURAÇÃO DE DISPOSITIVO ------------------
 # =========================================================================
-
-
-# =========================================================================
-# === INÍCIO DOS IMPORTS DAS BIBLIOTECAS (AGORA É SEGURO IMPORTAR TORCH) ===
-# =========================================================================
-
-
-# =========================================================================
-# === FIM DOS IMPORTS ===
-# =========================================================================
-
-
-# --- Configurações do Modelo com fallback (lidos do .env e convertidos para o tipo correto) ---
-MODEL_NAME = os.getenv("MODEL_NAME", "distilbert-base-multilingual-cased")
-NUM_LABELS = int(os.getenv("NUM_LABELS", 2))
-MAX_LENGTH = int(os.getenv("MAX_LENGTH", 64)) # Usei 128, mas reduzi pra 64 pra economizar RAM
-BATCH_SIZE = int(os.getenv("BATCH_SIZE", 1)) # Reduzi de 8 para 1 para economizar RAM
-LEARNING_RATE = float(os.getenv("LEARNING_RATE", 2e-5))
-NUM_EPOCHS = int(os.getenv("NUM_EPOCHS", 3))
 
 
 # --- Função para calcular métricas de avaliação do modelo ---
@@ -91,7 +81,7 @@ if __name__ == "__main__":
     print("--- Iniciando Treinamento do Classificador de E-mails ---")
 
     # =========================================================================
-    # === BLOCO DE DECISÃO FINAL DE DISPOSITIVO E APLICAÇÃO DE LIMITE DE RAM ===
+    # --- BLOCO DE DECISÃO FINAL DE DISPOSITIVO E APLICAÇÃO DE LIMITE DE RAM --
     # =========================================================================
     # Re-avalia o dispositivo final se a preferência era GPU
     if USE_GPU_PREFERENCE: 
@@ -125,12 +115,12 @@ if __name__ == "__main__":
     elif final_device == "cuda" and MAX_RAM_MB > 0 and os.name == 'posix':
         print("\nINFO: Limite de RAM em CPU (MAX_RAM_MB) será ignorado, pois o treinamento está usando GPU.")
     # =========================================================================
-    # === FIM DO BLOCO DE DECISÃO FINAL DE DISPOSITIVO ===
+    # ------------ FIM DO BLOCO DE DECISÃO FINAL DE DISPOSITIVO ---------------
     # =========================================================================
     
-    # -------------------------------------------------------------------------
-    # --- PRÓXIMO BLOCO: PREPARAÇÃO DOS DADOS (fica logo após a config de GPU/CPU) ---
-    # -------------------------------------------------------------------------
+    # =================================================================================
+    # --- PRÓXIMO BLOCO: PREPARAÇÃO DOS DADOS (fica logo após a config de GPU/CPU) ----
+    # =================================================================================
     
     # Obtenha o caminho base e a lista de idiomas dos datasets do .env
     dataset_base_path = os.getenv('DATASET_BASE_PATH')
@@ -190,9 +180,9 @@ if __name__ == "__main__":
         print("ERRO: Coluna 'numeric_labels' não encontrada no DataFrame. Verifique o mapeamento de categorias em data_preprocessing.py.")
         sys.exit(1) # Use sys.exit(1) para indicar erro
     
-    # -------------------------------------------------------------------------
-    # --- PRÓXIMO BLOCO: DIVISÃO E CRIAÇÃO DE DATASETS (fica logo após a prep de dados) ---
-    # -------------------------------------------------------------------------
+    # ======================================================================================
+    # --- PRÓXIMO BLOCO: DIVISÃO E CRIAÇÃO DE DATASETS (fica logo após a prep de dados) ----
+    # ======================================================================================
     
     train_df, val_df = train_test_split(
         df_final, 
@@ -221,18 +211,18 @@ if __name__ == "__main__":
     train_dataset = EmailDataset(train_encodings, train_df['numeric_labels'].tolist())
     val_dataset = EmailDataset(val_encodings, val_df['numeric_labels'].tolist())
 
-    # -------------------------------------------------------------------------
-    # --- PRÓXIMO BLOCO: CARREGAMENTO DO MODELO E TOKENIZADOR ---
-    # -------------------------------------------------------------------------
+    # =========================================================================
+    # --------- PRÓXIMO BLOCO: CARREGAMENTO DO MODELO E TOKENIZADOR -----------
+    # =========================================================================
 
     print(f"\n--- Carregando Modelo para Classificação: {MODEL_NAME} ---")
     # O modelo será carregado na CPU ou GPU dependendo das variáveis de ambiente e disponibilidade real
     model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME, num_labels=NUM_LABELS)
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME) 
 
-    # -------------------------------------------------------------------------
-    # --- PRÓXIMO BLOCO: CONFIGURAÇÃO DOS ARGUMENTOS DE TREINAMENTO ---
-    # -------------------------------------------------------------------------
+    # =========================================================================
+    # -------- PRÓXIMO BLOCO: CONFIGURAÇÃO DOS ARGUMENTOS DE TREINAMENTO ------
+    # =========================================================================
 
     print("\n--- Configurando Argumentos de Treinamento ---")
     training_args = TrainingArguments(
@@ -252,9 +242,9 @@ if __name__ == "__main__":
         report_to="none"
     )
 
-    # -------------------------------------------------------------------------
-    # --- PRÓXIMO BLOCO: INICIALIZAÇÃO DO TRAINER E TREINAMENTO ---
-    # -------------------------------------------------------------------------
+    # =========================================================================
+    # -------- PRÓXIMO BLOCO: INICIALIZAÇÃO DO TRAINER E TREINAMENTO ----------
+    # =========================================================================
 
     print("\n--- Inicializando e Treinando o Modelo ---")
     trainer = Trainer(
@@ -267,9 +257,9 @@ if __name__ == "__main__":
 
     trainer.train()
 
-    # -------------------------------------------------------------------------
-    # --- PRÓXIMO BLOCO: AVALIAÇÃO E SALVAMENTO DO MODELO ---
-    # -------------------------------------------------------------------------
+    # =========================================================================
+    # ----------- PRÓXIMO BLOCO: AVALIAÇÃO E SALVAMENTO DO MODELO -------------
+    # =========================================================================
 
     print("\n--- Avaliando o Modelo no Conjunto de Validação ---")
     eval_results = trainer.evaluate()
