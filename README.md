@@ -1,6 +1,5 @@
 # Classificador Inteligente de E-mails com IA
 
-![Banner do Projeto (Opcional)](./favicon.png)
 
 Este projeto é uma aplicação web simples, porém robusta, desenvolvida para classificar e-mails em categorias predefinidas (`Produtivo` ou `Improdutivo`) e sugerir respostas automáticas com base na classificação. A solução utiliza Inteligência Artificial (IA) no backend, com um frontend intuitivo para interação do usuário.
 
