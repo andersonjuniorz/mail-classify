@@ -7,10 +7,10 @@ env/
 venv/
 __pycache__/
 
-# IA
-fine_tuned_classifier/
+# Modelo treinado (IA)
+#fine_tuned_classifier/
 
-# Artefatos de treinamento e logs da IA
+# Logs e resultados do treino
 results/
 
 # Configuracao local

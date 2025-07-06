@@ -32,8 +32,10 @@ dist-ssr
 # ==============================================================
 
 
-# Modelos treinados e artefatos de ML
-fine_tuned_classifier/ 
+# Modelo treinado (IA)
+#fine_tuned_classifier/
+
+# Logs e resultados do treino
 results/
 
 # Code Runner vscode extension
