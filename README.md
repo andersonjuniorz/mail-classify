@@ -1,3 +1,13 @@
+![image](https://github.com/user-attachments/assets/ba4047a8-8a73-4c4a-b5e6-8b7816afe804)
+
+![image](https://github.com/user-attachments/assets/e996a51c-19b4-4930-9787-898ce0972fe5)
+
+![image](https://github.com/user-attachments/assets/42fcc4b9-3b5f-43d8-b865-940b6a26de68)
+
+
+
+
+
 # Classificador Inteligente de E-mails com IA
 
 
