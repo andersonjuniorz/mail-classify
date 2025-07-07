@@ -124,7 +124,7 @@ class EmailPreprocessor:
             return ""
         
         # Substitui qualquer coisa que NAO seja letra (a-z), numero (0-9) ou espaco (\s) por um espaco
-        text = re.sub(r'[^a-zA-Z0-9\s]', ' ', text)
+        text = re.sub(r'[^a-zA-Z0-9\s.,?!:;-_/#@%]', ' ', text)
         
         # Remove multiplos espacos e espacos no inicio/fim
         text = re.sub(r'\s+', ' ', text).strip()
