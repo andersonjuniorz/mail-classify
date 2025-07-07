@@ -14,7 +14,10 @@ __pycache__/
 results/
 
 # Configuracao local
-.env
+#.env
+
+# Utilitarios
+util/
 
 # vscode extension
 tempCodeRunnerFile.py

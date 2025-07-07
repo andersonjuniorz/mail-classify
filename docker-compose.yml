@@ -1,4 +1,9 @@
 services:
+
+  # ========================================================================================
+  # ------------------------------------- BACKEND ------------------------------------------
+  # ========================================================================================
+
   backend:
     build:
       context: ./Backend # Diz ao Docker para buscar o Dockerfile no diretorio atual
@@ -12,11 +17,11 @@ services:
       - ./Backend/myApp/data/datasets:/app/myApp/data/datasets # persiste os datasets de treino
       - ./Backend/fine_tuned_classifier:/app/fine_tuned_classifier # persiste a IA mais recente
 
-
     env_file:
       - ./Backend/.env 
 
     restart: on-failure
+
 
     # ================================================================================
     # --- ATENCAO: ESTA CONFIGURACAO HABILITA ACESSO A GPU NO DOCKER -----------------
@@ -26,10 +31,30 @@ services:
     # --- para que o treinamento ocorra na CPU sem problemas -------------------------
     # ================================================================================
 
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all # Tenta usar todas as GPUs NVIDIA disponiveis
-              capabilities: [gpu] # Habilita capacidades de GPU
+    # --------------- DESCOMENTE E ALTERE USE_GPU=TRUE PARA USAR GPU -----------------
+    #deploy:
+    #  resources:
+    #    reservations:
+    #      devices:
+    #        - driver: nvidia
+    #          count: all # Tenta usar todas as GPUs NVIDIA disponiveis
+    #          capabilities: [gpu] # Habilita capacidades de GPU
+
+
+  # ========================================================================================
+  # ------------------------------------- FRONTEND -----------------------------------------
+  # ========================================================================================
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+
+    ports:
+      - "80:80"
+
+    depends_on:
+      - backend
+
+    env_file:
+      - ./Frontend/.env
