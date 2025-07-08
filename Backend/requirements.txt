@@ -2,7 +2,7 @@
 # ------------- Dependencias Python do backend -----------------
 # ==============================================================
 
-flask==3.1.1                   # Framework
+flask==3.0.0                   # Framework
 python-dotenv==1.1.1           # Variaveis ambiente
 pandas==2.3.0                  # leitura de arquivos
 Flask-Cors==4.0.0              # Gerencia CORS

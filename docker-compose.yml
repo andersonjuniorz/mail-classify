@@ -31,14 +31,14 @@ services:
     # --- para que o treinamento ocorra na CPU sem problemas -------------------------
     # ================================================================================
 
-    # --------------- DESCOMENTE E ALTERE USE_GPU=TRUE PARA USAR GPU -----------------
-    #deploy:
-    #  resources:
-    #    reservations:
-    #      devices:
-    #        - driver: nvidia
-    #          count: all # Tenta usar todas as GPUs NVIDIA disponiveis
-    #          capabilities: [gpu] # Habilita capacidades de GPU
+    # ------ COMENTE ESSE BLOCO E ALTERE USE_GPU=FALSE PARA USAR APENAS A CPU ---------
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all # Tenta usar todas as GPUs NVIDIA disponiveis
+              capabilities: [gpu] # Habilita capacidades de GPU
 
 
   # ========================================================================================

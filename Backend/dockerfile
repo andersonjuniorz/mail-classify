@@ -10,9 +10,15 @@ WORKDIR /app
 # Copia o arquivo de requisitos
 COPY requirements.txt .
 
+# Only-CPU - comente a linha debaixo e descomente esta caso nao queira nvidia. 
+# Isso e opcional e tbm mais leve que que o comando abaixo, pois ele necessita da gpu
+#RUN pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu \
+#    && rm -rf /root/.cache/pip
+
 # Permite que pip use cache durante o build para velocidade, 
 # mas limpa-o em seguida para imagem pequena
 RUN pip install -r requirements.txt && rm -rf /root/.cache/pip
+
 
 # Copia o restante do codigo da aplicacao para o diretorio de trabalho
 COPY . .
