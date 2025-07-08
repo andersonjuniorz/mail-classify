@@ -60,9 +60,9 @@ Siga os passos abaixo para configurar seu ambiente de desenvolvimento.
 * **Node.js e npm/yarn:** Para o frontend React.
 * **Python 3.12:** Para o backend Flask.
 * **pip:** Gerenciador de pacotes Python.
-* **Docker Desktop (ou Docker Engine):** Para executar o backend containerizado.
+* **Docker Engine:** Para executar o backend containerizado.
 * **Git:** Para clonar o repositório.
-* **Opcional: NVIDIA Container Toolkit (para uso de GPU com Docker)**
+* **NVIDIA Container Toolkit (para uso de GPU com Docker)**
     Se você deseja que o Docker acesse sua GPU NVIDIA para o backend (usando `USE_GPU=True` no `.env`), você precisará instalar o NVIDIA Container Toolkit em seu sistema Ubuntu real. As instruções detalhadas podem ser encontradas em: [NVIDIA Container Toolkit Installation Guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 
 ### 1. Clonar o Repositório
@@ -70,46 +70,71 @@ Siga os passos abaixo para configurar seu ambiente de desenvolvimento.
 ```bash
 git clone git@github.com:andersonjuniorz/mail-classify.git
 ```
-
 ## ▶️ Como Usar o Aplicativo Localmente
 
-Após configurar seu ambiente conforme a seção anterior, siga estes passos para iniciar e usar a aplicação:
+Após configurar seu ambiente conforme a seção anterior, siga estes passos para iniciar e usar a aplicação.
 
-### 1. Iniciar o Backend (Flask com IA no Docker)
+### Iniciar a Aplicação Completa (Frontend e Backend)
 
-1.  Abra seu terminal e navegue para a pasta raíz (onde está o Backend e Frontend):
+1.  Abra seu terminal e navegue para a **raiz do seu repositório** (onde está o `docker-compose.yml`, `Backend/` e `Frontend/`):
 
-2.  Inicie o serviço Docker Compose. Na primeira vez, ou após alterações em dependências/código Python, ele construirá a imagem Docker.
-    ```bash
-    docker-compose up --build 
-    ```
-    * **Observação:** A primeira construção da imagem pode demorar vários minutos (devido à instalação de bibliotecas de IA).
-    * Para rodar o backend em segundo plano (detached mode), use: `docker-compose up -d --build`
-    * Para parar o backend quando terminar, use: `docker-compose down`
-    * Se encontrar problemas de cache (`gunicorn not found`), force uma reconstrução sem cache com: `docker-compose build --no-cache backend` e depois `docker-compose up backend`.
+2.  Na primeira vez que você rodar (ou após grandes alterações em dependências/código), construa as imagens Docker sem usar o cache para garantir que tudo esteja atualizado:
 
-3.  Aguarde até ver nos logs do terminal que o Gunicorn está escutando na porta `5000` (ex: `Listening at: http://0.0.0.0:5000`).
+```bash
+docker compose build --no-cache backend frontend
+```
 
-### 2. Iniciar o Frontend (React)
+**Observação:** A construção da imagem pode demorar alguns minutos (devido à instalação de bibliotecas de IA no backend e Node.js no frontend). Em execuções futuras, você pode omitir `--no-cache` para usar o cache e acelerar o processo.
 
-1.  Abra **outro terminal** (mantenha o terminal do backend rodando).
-2.  Entre na pasta do **Frontend** do projeto:
-    ```bash
-    cd ../Frontend/                
-    ```
-3.  Instale as dependências JavaScript (apenas na primeira vez):
-    ```bash
-    npm install # ou yarn install
-    ```
-4.  Inicie o servidor de desenvolvimento do React:
-    ```bash
-    npm run dev # (Para Vite)
-    ```
-    * A aplicação React estará acessível em `http://localhost:5173` (ou a porta padrão do Vite, que será exibida no terminal).
+3.  Após a construção (ou em execuções subsequentes), inicie os serviços Docker Compose (backend e frontend):
 
-### 3. Testar a Aplicação
+```bash
+docker compose up -d
+```
+**`-d`:** Inicia os contêineres em segundo plano (detached mode), liberando seu terminal.
 
-* Com o backend Dockerizado e o frontend React rodando, acesse a URL do frontend no seu navegador (ex: `http://localhost:5173`).
-* Teste as funcionalidades de upload de arquivos (`.txt` ou `.pdf`) e a inserção de texto manual. A IA deve classificar e gerar respostas automáticas na interface.
+### Testar a Aplicação
 
----
+Teste as funcionalidades de upload de arquivos (`.txt` ou `.pdf`) e a inserção de texto manual. A IA deve classificar e gerar respostas automáticas na interface.
+
+### Verificar LOGs do Frontend e Backend (Caso queira)
+
+Aguarde alguns segundos para que os serviços iniciem completamente (especialmente o backend, que carrega o modelo de IA). Você pode verificar o status dos contêineres com:
+
+```bash
+docker-compose ps
+```
+E ver os logs do frontend e backend com:
+
+```bash
+docker-compose logs backend
+docker-compose logs frontend
+```  
+
+### Ferramentas de Gerenciamento de Contêineres (Opcional)
+
+Para gerenciar contêineres e orquestração em larga escala, podem ser utilizadas ferramentas adicionais, caso prefira:
+
+* **Portainer:** Uma interface gráfica de usuário (UI) para gerenciamento simplificado de ambientes Docker e Kubernetes.
+* **Podman:** Uma alternativa ao Docker para construir, executar e gerenciar contêineres e imagens, compatível com a CLI do Docker, mas sem daemon.
+* **Docker Swarm:** A ferramenta de orquestração nativa do Docker, mais simples que o Kubernetes para clusters menores.
+* **Kubernetes:** Uma plataforma de orquestração de contêineres de código aberto para automatizar o deploy, escalonamento e gerenciamento de aplicações containerizadas.
+
+
+### Acessar o Aplicativo
+
+Com o backend e frontend Dockerizados rodando, abra seu navegador e acesse a URL:
+
+```bash
+http://localhost
+```
+
+A aplicação React (frontend) será exibida. A comunicação com o backend será feita internamente na rede Docker Compose, resolvendo quaisquer problemas de Mixed Content ou CORS em ambiente local.
+
+### Parar a Aplicação
+
+Para parar e remover os contêineres e redes criadas pelo Docker Compose, navegue para a raiz do seu repositório (onde está o `docker-compose.yml`) e execute:
+
+```bash
+docker-compose down
+```
